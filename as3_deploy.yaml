@@ -6,13 +6,22 @@
   connection: local
   gather_facts: no
 
-  - name: Create a JIRA issue
-    uri:
-      url: https://your.jira.example.com/rest/api/2/issue/
-      user: your_username
-      password: your_pass
-      method: POST
-      body: "{{ lookup('file','issue.json') }}"
-      force_basic_auth: yes
-      status_code: 201
-      body_format: json
+  vars_files:
+    - ../creds/big_creds.yaml
+  vars:
+    uri_method: POST
+
+  tasks:
+    # highlight block and indent with: Cmd-]
+    - name: Issue AS3 declaration
+      uri:
+        url: https://108.128.216.12/mgmt/shared/appsvcs/declare
+        user: "{{ bigip_user }}"
+        password: "{{ bigip_pass }}"
+        method: "{{ uri_method }}"
+        # body: "{{ lookup('file','./as3-declarations/simple-as3.json') }}"
+        body: "{{ lookup('file','./as3-declarations/serviceMain_disabled.json') }}"
+        force_basic_auth: yes
+        status_code: 200
+        body_format: json
+        validate_certs: no
