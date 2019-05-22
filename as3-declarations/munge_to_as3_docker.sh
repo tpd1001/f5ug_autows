@@ -13,5 +13,6 @@ a\
 "targetPassphrase": "admin",
 }
 ' ${1?} | ${sed} "/targetPassphrase/s/admin/${passwd?}/" > $tmp
-#' ${1?} > $tmp
+# curl does not work with -d <filename> in any of my attempts so far
+# so just display the munged json instead
 cat $tmp
