@@ -19,6 +19,7 @@
         user: "{{ bigip_user }}"
         password: "{{ bigip_pass }}"
         method: "{{ uri_method }}"
+        # https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/validate.html
         # body: "{{ lookup('file','./as3-declarations/simple-as3.json') }}"
         body: "{{ lookup('file','./as3-declarations/serviceMain_disabled.json') }}"
         force_basic_auth: yes
