@@ -1,0 +1,8 @@
+ {
+     "class": "AS3",
+     "action": "retrieve",
+     "targetHost": "108.128.216.12",
+     "targetUsername": "admin",
+     "targetPassphrase": "autows123!!",
+     "persist": true
+ }
